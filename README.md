@@ -79,19 +79,11 @@ Upload the contents of the `out/` folder to any static host (GitHub Pages, Netli
 
 ## Push to GitHub
 
-Create a new repo named **flunext** and push this project:
+The project is already committed locally. To put it on GitHub:
 
-```bash
-# If you haven’t initialized git yet
-git init
-git add .
-git commit -m "Initial commit: Next.js + Flutter hybrid"
+1. **Create a new repo on GitHub:** go to [github.com/new](https://github.com/new), set the name to **flunext**, leave “Add a README” **unchecked**, then click **Create repository**.
 
-# Create the repo on GitHub (requires GitHub CLI: https://cli.github.com/)
-gh repo create flunext --public --source=. --remote=origin --push
-```
-
-If you don’t use GitHub CLI, create the repo on [GitHub](https://github.com/new) (name: **flunext**, leave “Add a README” unchecked), then:
+2. **Add the remote and push** (replace `YOUR_USERNAME` with your GitHub username):
 
 ```bash
 git remote add origin https://github.com/YOUR_USERNAME/flunext.git
@@ -99,7 +91,11 @@ git branch -M main
 git push -u origin main
 ```
 
-Replace `YOUR_USERNAME` with your GitHub username.
+**If you use GitHub CLI** and want to create the repo from the terminal:
+
+```bash
+gh repo create flunext --public --source=. --remote=origin --push
+```
 
 ---
 
