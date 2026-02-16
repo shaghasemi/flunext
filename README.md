@@ -156,6 +156,19 @@ The Flutter app uses **hash routing** (default for Flutter web). Next.js links p
 
 Routes are defined in `flutter_app/lib/main.dart` with `go_router`. Add more routes there and corresponding Next.js pages under `app/(flutter)/`.
 
+## Checking that data and state persist (fake login)
+
+The Flutter app includes a **fake login** so you can verify that state persists when opening different Flutter pages from the Next.js shell (e.g. OTC vs Marketplace), even though each link loads a **new iframe** (new Flutter instance).
+
+- **Persistence:** The “logged in” username is stored with `shared_preferences` (on web this is **localStorage**). All iframes share the same origin, so they share the same localStorage.
+- **How to check:**
+  1. Open the app (e.g. click **OTC** or **Marketplace** from the Next.js home).
+  2. In the Flutter iframe, tap the **Home** icon (or open the Flutter home route) and use **Fake login**: enter a username and tap **Log in**.
+  3. Go to another Flutter page (e.g. use **Go to Marketplace** inside Flutter, or use the Next.js **Marketplace** link in the browser).
+  4. You should see **“Logged in as: &lt;your name&gt;”** on the new page — state persisted across iframe loads.
+
+This confirms that data/state can persist in the web build across “navigations” that open different Flutter routes (or different Next.js links that load new iframes).
+
 ## Using the same Flutter app on mobile and desktop
 
 - **Web:** Embedded here via iframe; build with `flutter build web --base-href "/flutter-app/"`.
