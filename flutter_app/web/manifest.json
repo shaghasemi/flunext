@@ -1,0 +1,8 @@
+{
+  "name": "Flunext App",
+  "short_name": "Flunext",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#12121a",
+  "theme_color": "#6366f1"
+}
